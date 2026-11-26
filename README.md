@@ -45,8 +45,8 @@ Os detalhes de cada entrega estão nos PDFs listados abaixo.
 ## Arquitetura (Sprint 4)
 
 - [ADRs](docs/adr/) — decisões arquiteturais consolidadas (001 a 010)
-- [Diagramas C4](docs/arquitetura/) — context, container e component em PlantUML
-- [DDD](docs/ddd/) — subdomínios, linguagem ubíqua e mapa de contextos
+- [C4 — Contexto](docs/arquitetura/c4-contexto.md), [Contêineres](docs/arquitetura/c4-container.md), [Componentes](docs/arquitetura/c4-componente.md)
+- [DDD — Mapa de Contextos](docs/ddd/mapa-contextos.md), [Subdomínios](docs/ddd/subdominios.md), [Linguagem Ubíqua](docs/ddd/linguagem-ubiqua.md)
 
 ## Fluxo de trabalho
 
