@@ -50,4 +50,4 @@ Os detalhes de cada entrega estão nos PDFs listados abaixo.
 
 ## Fluxo de trabalho
 
-Sem commits diretos na `main`: cada integrante trabalha em sua branch, abre um PR com o template preenchido e revisa o PR de um colega (mínimo de 1 aprovação).
+Sem commits diretos na `main`: cada integrante trabalha em sua branch, abre um PR para `main` e revisa o PR de um colega (mínimo de 1 aprovação).
