@@ -1,0 +1,30 @@
+@startuml
+title Mapa de Contextos — Agile Dead Trees
+
+skinparam rectangle {
+  BackgroundColor <<core>> LightGreen
+  BackgroundColor <<acl>> LightBlue
+}
+
+rectangle "CMS" as CMS
+rectangle "Publicação Editorial\n**CORE DOMAIN**" as PUB <<core>>
+rectangle "Integração de Eventos\nContracts / Kafka\n(OHS proposto)" as EVT
+rectangle "Comércio de Livros\nE-commerce" as COM
+rectangle "Importação de Planilhas" as PLAN
+rectangle "Integração de Impressão\n**ACL**" as IMP <<acl>>
+rectangle "Sistemas legados\ndas gráficas" as LEG
+
+CMS --> PUB : manuscritos
+PUB -->|Upstream| EVT : EventoLivroPublicado
+EVT -->|Downstream| COM : livro publicado
+COM --> EVT : OrdemDePublicacao
+EVT --> IMP : ordem de impressão
+PLAN --> EVT : eventos validados
+IMP -->|Adapter / Facade / Translator| LEG : XML/EDI, OPC UA, serial
+
+note right of EVT
+  OHS: contratos de eventos
+  claros e estáveis
+end note
+
+@enduml
