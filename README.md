@@ -6,15 +6,15 @@ Projeto de editora digital e e-commerce: fluxo de publicação híbrida (e-books
 
 Os detalhes de cada entrega estão nos PDFs listados abaixo.
 
-> Estado atual: preparação do commit inicial (baseline da `main`).
+> Baseline da `main` criada. A evolução da arquitetura acontece em branches individuais, via Pull Requests com revisão por pares.
 
 ## Equipe
 
 | Integrante | Função | GitHub |
 |---|---|---|
 | Lorena Gobara Falci | Líder | @loregbrw |
-| Nilton Prudêncio Oliveira de Meira | Pesquisador | @adriangobarafalci |
-| Adrian Gobara Falci | Executor | @NiltonMeira |
+| Nilton Prudêncio Oliveira de Meira | Pesquisador | @NiltonMeira |
+| Adrian Gobara Falci | Executor | @adriangobarafalci |
 
 ## Entregas
 
@@ -41,3 +41,13 @@ Os detalhes de cada entrega estão nos PDFs listados abaixo.
 | Apresentação do projeto | [apresentação-projeto.pdf](docs/apresentacoes/apresentação-projeto.pdf) |
 | Seminário — Padrões de Criação | [seminário-padrões-de-criação.pdf](docs/apresentacoes/seminário-padrões-de-criação.pdf) |
 | APS2 | [APS2.pdf](docs/APS/APS2.pdf) |
+
+## Arquitetura (Sprint 4)
+
+- [ADRs](docs/adr/) — decisões arquiteturais consolidadas (001 a 010)
+- [Diagramas C4](docs/arquitetura/) — context, container e component em PlantUML
+- [DDD](docs/ddd/) — subdomínios, linguagem ubíqua e mapa de contextos
+
+## Fluxo de trabalho
+
+Sem commits diretos na `main`: cada integrante trabalha em sua branch, abre um PR com o template preenchido e revisa o PR de um colega (mínimo de 1 aprovação).
