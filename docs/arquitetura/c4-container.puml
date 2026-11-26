@@ -1,0 +1,41 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title Nível 2 — Contêineres da Plataforma Agile Dead Trees
+
+Person(autor, "Autor / Equipe Editorial")
+Person(leitor, "Leitor / Cliente")
+
+System_Boundary(adt, "Plataforma Agile Dead Trees") {
+  Container(cms, "CMS Editorial", "React + API", "Redação, revisão e aprovação de manuscritos com apoio de IA")
+  Container(ecommerce, "E-Commerce & Busca", "Storefront", "Catálogo, busca semântica e compra")
+  Container(core, "Core & Orquestrador Gráfico", "C# / .NET LTS", "Pedidos, catálogo, pagamentos e tradução de ordens de impressão")
+  Container(kafka, "Barramento de eventos", "Apache Kafka", "Integração assíncrona e nivelamento de carga")
+  Container(aigw, "AI Gateway", "Kong AI / LiteLLM", "Guardrails, rate limit, fallback e roteamento de modelos")
+  Container(rag, "Orquestrador RAG", "Python / LangGraph", "Chunking, recuperação híbrida e grounding")
+  ContainerDb(vector, "Banco Vetorial", "Qdrant / pgvector", "Embeddings de capítulos, sinopses e cache semântico")
+  Container(llmrt, "SLM / LLM Runtime", "vLLM + LLM API", "SLM local e LLM de fronteira, invocados via AI Gateway")
+  ContainerDb(db, "Banco Relacional", "PostgreSQL", "Persistência transacional de pedidos e contratos")
+  Container(adapters, "SystemAdapters / Spreadsheet / LegacyIntegration", "C# / .NET LTS", "ACL: adapters, facade e tradução XML/EDI")
+}
+
+System_Ext(graficas, "Gráficas legadas", "OPC UA / serial / mainframe")
+System_Ext(pagamento, "Gateway de pagamento", "HTTPS/REST")
+
+Rel(autor, cms, "Redige e aprova", "HTTPS/REST")
+Rel(leitor, ecommerce, "Busca e compra", "HTTPS/REST")
+Rel(cms, core, "Publica eventos editoriais", "Kafka")
+Rel(ecommerce, core, "Registra pedidos", "Kafka")
+Rel(core, db, "Persiste dados", "SQL/TCP")
+Rel(core, adapters, "Envia ordens de impressão", "gRPC/HTTP2")
+Rel(adapters, graficas, "Comunica com legado", "OPC UA / serial / XML-EDI")
+Rel(core, pagamento, "Autoriza cobrança", "HTTPS/REST")
+Rel(cms, aigw, "Solicita assistência", "HTTPS/REST")
+Rel(ecommerce, aigw, "Busca semântica e recomendação", "HTTPS/REST")
+Rel(aigw, rag, "Roteia consultas", "HTTPS")
+Rel(aigw, llmrt, "Invoca modelos", "mTLS")
+Rel(rag, vector, "Consulta embeddings", "gRPC")
+Rel(rag, llmrt, "Monta contexto e infere", "mTLS")
+Rel(cms, vector, "Indexa conteúdos", "gRPC")
+
+@enduml
