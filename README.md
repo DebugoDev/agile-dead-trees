@@ -11,12 +11,13 @@ A plataforma adota arquitetura orientada a eventos com Apache Kafka (ADRs 001 e 
 A inteligência artificial é híbrida: SLMs locais, LLMs e RAG ficam atrás de um AI Gateway com guardrails, mascaramento de PII e cache semântico, sem atuação autônoma no caminho crítico transacional ou industrial (ADR 010). A resiliência do elo mais fraco — as gráficas legadas — usa timeout de 2s, retry com backoff e jitter, circuit breaker e fallback em DLQ (ADR 007). A stack de integração é C#/.NET LTS (ADR 009) e as regras de dependência são verificadas por fitness functions com NetArchTest (equivalente ao ArchUnit em C#).
 
 ## Equipe
+Organização da Sprint 4.
 
 | Integrante | Função | GitHub |
 |---|---|---|
-| Lorena Gobara Falci | Líder | @loregbrw |
-| Nilton Prudêncio Oliveira de Meira | Pesquisador | @NiltonMeira |
-| Adrian Gobara Falci | Executor | @adriangobarafalci |
+| Lorena Gobara Falci | Líder | [@loregbrw](https://www.github.com/loregbrw) |
+| Nilton Prudêncio Oliveira de Meira | Pesquisador | [@NiltonMeira](https://www.github.com/NiltonMeira) |
+| Adrian Gobara Falci | Executor | [@adriangobarafalci](https://www.github.com/adriangobarafalci) |
 
 ## Onde encontrar cada entrega
 
