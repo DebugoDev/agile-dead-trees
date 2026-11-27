@@ -1,6 +1,32 @@
 # Mapa de Contextos — Agile Dead Trees
 
-Fonte: consolidado da Sprint 3 (arquivo `docs/sprints/sprint-3.pdf`). Representação em PlantUML: [context-map.puml](context-map.puml).
+Fonte: consolidado da Sprint 3 (arquivo `docs/sprints/sprint-3.pdf`).
+
+## Diagrama
+
+```mermaid
+flowchart TD
+    CMS["CMS"]
+    PUB["Publicação Editorial<br/>CORE DOMAIN"]
+    EVT["Integração de Eventos<br/>Contracts / Kafka<br/>OHS proposto"]
+    COM["Comércio de Livros<br/>E-commerce"]
+    IMP["Integração de Impressão<br/>ACL"]
+    LEG["Sistemas legados<br/>das gráficas"]
+    PLAN["Importação de Planilhas"]
+
+    CMS -->|"manuscritos"| PUB
+    PUB -->|"Upstream — EventoLivroPublicado"| EVT
+    EVT -->|"Downstream — livro publicado"| COM
+    COM -->|"OrdemDePublicacao"| EVT
+    EVT -->|"ordem de impressão"| IMP
+    PLAN -->|"eventos validados"| EVT
+    IMP -->|"Adapter / Facade / Translator — XML/EDI, OPC UA, serial"| LEG
+
+    classDef core fill:#c8e6c9,color:#1b5e20
+    classDef acl fill:#bbdefb,color:#0d47a1
+    class PUB core
+    class IMP acl
+```
 
 ## Contextos delimitados
 
